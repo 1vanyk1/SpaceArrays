@@ -7,10 +7,14 @@ import android.graphics.Paint;
 
 public class Rocket extends ObjectBase {
     Bitmap rocketImage;
+    int vx;
+    int vy;
 
-    public Rocket(int x, int y, Bitmap rocketImage) {
+    public Rocket(int x, int y, int vx, int vy, Bitmap rocketImage) {
         super(x, y, 255);
         this.rocketImage = rocketImage;
+        this.vx = vx;
+        this.vy = vy;
     }
 
     public void draw(Canvas canvas, Paint paint) {
@@ -19,5 +23,11 @@ public class Rocket extends ObjectBase {
         matrix.postTranslate(x, y);
         paint.setAlpha(alpha);
         canvas.drawBitmap(rocketImage, matrix, paint);
+        move();
+    }
+
+    public void move() {
+        x += vx;
+        y += vy;
     }
 }

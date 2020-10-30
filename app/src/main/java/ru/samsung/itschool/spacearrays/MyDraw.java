@@ -15,8 +15,8 @@ public class MyDraw extends View {
 
 	public MyDraw(Context context, AttributeSet attrs) {
 		super(context, attrs);
-		appendRocket(new Rocket(600, 900, BitmapFactory.decodeResource(getResources(), R.drawable.rocket)));
-		appendRocket(new Rocket(300, 300, BitmapFactory.decodeResource(getResources(), R.drawable.rocket)));
+		appendRocket(new Rocket(600, 900, 0, 0, BitmapFactory.decodeResource(getResources(), R.drawable.rocket)));
+		appendRocket(new Rocket(300, 300, 1, -1, BitmapFactory.decodeResource(getResources(), R.drawable.rocket)));
 	}
 
 	@Override
