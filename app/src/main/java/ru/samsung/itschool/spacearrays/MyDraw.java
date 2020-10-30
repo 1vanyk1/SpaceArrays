@@ -12,17 +12,20 @@ public class MyDraw extends View {
 	Rocket rockets[] = new Rocket[1000];
 	int count_of_rockets = 0;
 	boolean app_is_loaded = false;
+	int width, height;
 
 	public MyDraw(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		appendRocket(new Rocket(600, 900, 0, 0, BitmapFactory.decodeResource(getResources(), R.drawable.rocket)));
-		appendRocket(new Rocket(300, 300, 1, -1, BitmapFactory.decodeResource(getResources(), R.drawable.rocket)));
+		appendRocket(new Rocket(300, 300, 5, -5, BitmapFactory.decodeResource(getResources(), R.drawable.rocket)));
 	}
 
 	@Override
 	protected void onSizeChanged(int w, int h, int oldw, int oldh) {
 		super.onSizeChanged(w, h, oldw, oldh);
 		sky.setSize(w, h);
+		this.width = w;
+		this.height = h;
 		sky.createSky(200, w, h);
 		app_is_loaded = true;
 	}
@@ -48,6 +51,7 @@ public class MyDraw extends View {
 	public void drawRockets(Canvas canvas, Paint paint) {
 		for (int i = 0; i < count_of_rockets; i++) {
 			rockets[i].draw(canvas, paint);
+			rockets[i].move(width, height);
 		}
 	}
 

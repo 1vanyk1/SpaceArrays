@@ -23,11 +23,20 @@ public class Rocket extends ObjectBase {
         matrix.postTranslate(x, y);
         paint.setAlpha(alpha);
         canvas.drawBitmap(rocketImage, matrix, paint);
-        move();
     }
 
-    public void move() {
+    public void move(int width, int height) {
         x += vx;
         y += vy;
+        if (y + rocketImage.getHeight() < 0) {
+            y = height;
+        } else if (y > height) {
+            y = -rocketImage.getHeight();
+        }
+        if (x + rocketImage.getWidth() < 0) {
+            x = width;
+        } else if (x > width) {
+            x = -rocketImage.getWidth();
+        }
     }
 }
