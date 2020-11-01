@@ -11,6 +11,11 @@ public class Star extends ObjectBase{
         this.layer = layer;
     }
 
+    public Star(int x, int y, int layer) {
+        super(x, y, 256);
+        this.layer = layer;
+    }
+
     public void draw(Canvas canvas, Paint paint) {
         paint.setColor(Color.YELLOW);
         paint.setStrokeWidth(2);

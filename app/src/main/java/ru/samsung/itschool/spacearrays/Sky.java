@@ -5,13 +5,18 @@ import android.graphics.Color;
 import android.graphics.Paint;
 
 public class Sky {
-    Star stars[] = new Star[100000];
+    Star[] stars = new Star[100000];
     int count_of_stars = 0;
     int width, height;
 
     public Sky() {
         this.width = 1200;
         this.height = 2000;
+    }
+
+    public Sky(int width, int height) {
+        this.width = width;
+        this.height = height;
     }
 
     public void setSize(int width, int height) {
@@ -25,6 +30,17 @@ public class Sky {
         for (int i = 0; i < count_of_stars; i++)
         {
             Star star = new Star((int)(Math.random() * maxX), (int)(Math.random() * maxY),
+                    (int)(Math.random() * 256), (int)(Math.random() * 5));
+            stars[i] = star;
+        }
+    }
+
+    public void createSky(int count_of_stars) {
+        stars = new Star[100000];
+        this.count_of_stars = count_of_stars;
+        for (int i = 0; i < count_of_stars; i++)
+        {
+            Star star = new Star((int)(Math.random() * this.width), (int)(Math.random() * this.height),
                     (int)(Math.random() * 256), (int)(Math.random() * 5));
             stars[i] = star;
         }

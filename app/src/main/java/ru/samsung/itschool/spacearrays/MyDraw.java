@@ -9,15 +9,15 @@ import android.view.MotionEvent;
 import android.view.View;
 
 public class MyDraw extends View {
-	Rocket rockets[] = new Rocket[1000];
+	Rocket[] rockets = new Rocket[1000];
 	int count_of_rockets = 0;
 	boolean app_is_loaded = false;
 	int width, height;
 
 	public MyDraw(Context context, AttributeSet attrs) {
 		super(context, attrs);
-		appendRocket(new Rocket(600, 900, 0, 0, BitmapFactory.decodeResource(getResources(), R.drawable.rocket)));
-		appendRocket(new Rocket(300, 300, 5, -5, BitmapFactory.decodeResource(getResources(), R.drawable.rocket)));
+		appendRocket(new Rocket(500, 600, BitmapFactory.decodeResource(getResources(), R.drawable.rocket)));
+		appendRocket(new Rocket(300, 400, 4, -4, BitmapFactory.decodeResource(getResources(), R.drawable.rocket)));
 	}
 
 	@Override
@@ -26,7 +26,7 @@ public class MyDraw extends View {
 		sky.setSize(w, h);
 		this.width = w;
 		this.height = h;
-		sky.createSky(200, w, h);
+		sky.createSky(200);
 		app_is_loaded = true;
 	}
 
@@ -57,7 +57,7 @@ public class MyDraw extends View {
 
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {
-		sky.appendStar(new Star((int) event.getX(), (int) event.getY(), 256, (int)(Math.random() * 5)));
+		sky.appendStar(new Star((int) event.getX(), (int) event.getY(), (int)(Math.random() * 5)));
 		return false;
 	}
 }

@@ -17,6 +17,13 @@ public class Rocket extends ObjectBase {
         this.vy = vy;
     }
 
+    public Rocket(int x, int y, Bitmap rocketImage) {
+        super(x, y, 255);
+        this.rocketImage = rocketImage;
+        this.vx = 0;
+        this.vy = 0;
+    }
+
     public void draw(Canvas canvas, Paint paint) {
         Matrix matrix = new Matrix();
         matrix.setScale(0.2f, 0.2f);
