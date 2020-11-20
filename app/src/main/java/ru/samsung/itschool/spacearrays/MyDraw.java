@@ -48,16 +48,16 @@ public class MyDraw extends View {
 		invalidate();
 	}
 
-	public void drawRockets(Canvas canvas, Paint paint) {
+	protected void drawRockets(Canvas canvas, Paint paint) {
 		for (int i = 0; i < count_of_rockets; i++) {
 			rockets[i].draw(canvas, paint);
-			rockets[i].move(width, height);
+			rockets[i].move(-vx, -vy, width, height);
 		}
 	}
 
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {
-		sky.appendStar(new Star((int) event.getX(), (int) event.getY(), (int)(Math.random() * 5)));
+		sky.appendStar(new Star((int) event.getX(), (int) event.getY(), (int)(Math.random() * 5), true));
 		return false;
 	}
 }

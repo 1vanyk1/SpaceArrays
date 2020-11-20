@@ -1,13 +1,9 @@
 package ru.samsung.itschool.spacearrays;
 
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
-
-public class ObjectBase {
-    int x;
-    int y;
-    int alpha;
+abstract public class ObjectBase {
+    private int x;
+    private int y;
+    private int alpha;
 
     public ObjectBase(int x, int y, int alpha) {
         this.x = x;
@@ -15,15 +11,33 @@ public class ObjectBase {
         this.alpha = alpha;
     }
 
-    public void draw(Canvas canvas, Paint paint) {
-        paint.setColor(Color.YELLOW);
-        paint.setStrokeWidth(2);
-        paint.setAlpha(alpha);
-        canvas.drawCircle(x, y, 10, paint);
+    protected void setX(int x) {
+        this.x = x;
     }
 
-    public void move(int dx, int dy) {
-        x += dx;
-        y += dy;
+    protected void setY(int y) {
+        this.y = y;
+    }
+
+    protected void setAlpha(int alpha) {
+        this.alpha = alpha;
+    }
+
+    public ObjectBase(int x, int y) {
+        this.x = x;
+        this.y = y;
+        this.alpha = 255;
+    }
+
+    protected int getX() {
+        return x;
+    }
+
+    protected int getY() {
+        return y;
+    }
+
+    protected int getAlpha() {
+        return alpha;
     }
 }
