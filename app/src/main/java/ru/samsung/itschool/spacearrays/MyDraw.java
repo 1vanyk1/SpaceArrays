@@ -11,13 +11,23 @@ import android.view.View;
 public class MyDraw extends View {
 	Rocket[] rockets = new Rocket[1000];
 	int count_of_rockets = 0;
+	int count_of_stars = 200;
 	boolean app_is_loaded = false;
 	int width, height;
+	boolean is_yellow = false;
 
 	public MyDraw(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		appendRocket(new Rocket(500, 600, BitmapFactory.decodeResource(getResources(), R.drawable.rocket)));
 		appendRocket(new Rocket(300, 400, 4, -4, BitmapFactory.decodeResource(getResources(), R.drawable.rocket)));
+	}
+
+	public void setColor(boolean is_yellow) {
+		this.is_yellow = is_yellow;
+	}
+
+	public void setCount_of_stars(int count) {
+		this.count_of_stars = count;
 	}
 
 	@Override
@@ -26,7 +36,7 @@ public class MyDraw extends View {
 		sky.setSize(w, h);
 		this.width = w;
 		this.height = h;
-		sky.createSky(200);
+		sky.create(count_of_stars, is_yellow);
 		app_is_loaded = true;
 	}
 

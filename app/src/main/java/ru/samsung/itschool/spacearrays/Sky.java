@@ -24,19 +24,23 @@ public class Sky {
         this.height = height;
     }
 
-    public void createSky(int count_of_stars, int maxX, int maxY) {
+    public void create(int count_of_stars, boolean is_yellow, int maxX, int maxY) {
         stars = new Star[100000];
         this.count_of_stars = count_of_stars;
         for (int i = 0; i < count_of_stars; i++)
         {
             Star star = new Star((int)(Math.random() * maxX), (int)(Math.random() * maxY),
-                    (int)(Math.random() * 256), (int)(Math.random() * 5), true);
+                    (int)(Math.random() * 256), (int)(Math.random() * 5), !is_yellow);
             stars[i] = star;
         }
     }
 
-    public void createSky(int count_of_stars) {
-        this.createSky(count_of_stars, this.width, this.height);
+    public void create(int count_of_stars) {
+        this.create(count_of_stars, false, this.width, this.height);
+    }
+
+    public void create(int count_of_stars, boolean is_yellow) {
+        this.create(count_of_stars, is_yellow, this.width, this.height);
     }
 
     public void appendStar(Star star) {

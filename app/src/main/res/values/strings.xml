@@ -3,5 +3,9 @@
 
     <string name="app_name">Space Rockets</string>
     <string name="hello_world">Hello world!</string>
+    <string name="start">Запустить</string>
+    <string name="is_yellow">Жёлтые звёзды</string>
+    <string name="count_of_stars">Количество звёзд</string>
+    <string name="close">Выйти</string>
 
 </resources>
