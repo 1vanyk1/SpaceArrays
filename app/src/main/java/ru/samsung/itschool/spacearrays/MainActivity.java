@@ -27,7 +27,7 @@ public class MainActivity extends Activity implements View.OnClickListener, Seek
 		stars = findViewById(R.id.count_of_stars);
 		stars.setOnSeekBarChangeListener(this);
 		TextView text1 = findViewById(R.id.text1);
-		text1.setText(getString(R.string.count_of_stars) + " 200");
+		text1.setText(getString(R.string.count_of_stars) + " " + Integer.toString(count));
 	}
 
 	@Override
